@@ -1,6 +1,9 @@
 import logo from './logo.svg';
 import './App.css';
 import React, {useState} from 'react';
+import MealsProvider from './providers/MealsProvider'
+import Counter from './components/Counter'
+import MealsList from './components/MealsList'
 
 
 function App() {
@@ -12,7 +15,11 @@ function App() {
 
   return (
     <div className='App'>
-      <input className="input" value={state} onChange={nameChange}/>
+      <MealsProvider>
+        <MealsList/>
+        <Counter/>
+      </MealsProvider>
+      <input className="input" onChange={nameChange}/>
       <p>You typed: {state}</p>
       <button onClick={() => {setState('hello')}}>
         Reset
